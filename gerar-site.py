@@ -95,8 +95,9 @@ def main():
 
     if saida.exists():
         shutil.rmtree(saida)
+    # A marca azul vai só dentro da página; a branca também sai como arquivo, porque o app da equipe usa
     shutil.copytree(PASTA / "assets", saida / "assets",
-                    ignore=shutil.ignore_patterns("marca-alternativa-*.svg", ".DS_Store"))
+                    ignore=shutil.ignore_patterns("marca-alternativa-cor-azul.svg", ".DS_Store"))
     (saida / "index.html").write_text(pagina, encoding="utf-8")
     if not rascunho:
         (saida / "CNAME").write_text(DOMINIO + "\n")
