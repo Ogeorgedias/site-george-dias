@@ -20,6 +20,17 @@ PASTA = Path(__file__).parent
 SAIDA = PASTA / "docs"
 CLIENTES = PASTA.parent / "propostas" / "clientes.json"
 DOMINIO = "www.georgedias.com.br"
+# Os logos ficam em ordem alfabética pelo nome que aparece no logo (sem "Tintas", "Academia"...),
+# para nenhum cliente parecer mais importante que outro (pedido do George em 28/10/2026)
+PREFIXOS = ("Academia ", "Colégio ", "Construtora ", "Tintas ")
+
+
+def nome_no_logo(c):
+    nome = c if isinstance(c, str) else c["nome"]
+    for prefixo in PREFIXOS:
+        if nome.startswith(prefixo):
+            return nome[len(prefixo):]
+    return nome
 
 
 def slug(texto):
@@ -47,7 +58,7 @@ def tamanho(arq, area=5200, larg_max=180, alt_max=64):
 
 def grade_clientes():
     itens = []
-    for c in json.loads(CLIENTES.read_text(encoding="utf-8")):
+    for c in sorted(json.loads(CLIENTES.read_text(encoding="utf-8")), key=lambda c: slug(nome_no_logo(c))):
         nome = c if isinstance(c, str) else c["nome"]
         fundo = "" if isinstance(c, str) else f' style="background:{c["fundo"]}"'
         arq = next((PASTA / "assets" / "clientes" / f"{slug(nome)}.{ext}" for ext in ("svg", "png", "jpg")
