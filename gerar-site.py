@@ -1,6 +1,7 @@
 """Monta o site para publicar: pagina.html + logos da marca + grade de clientes → docs/.
 
-Uso: python3 gerar-site.py
+Uso: python3 gerar-site.py              (site que vai para o ar, em docs/)
+     python3 gerar-site.py --rascunho  (pagina-v2.html em rascunho/, só para ver no computador)
 O site está no ar em www.georgedias.com.br (DNS trocado em 28/10/2026), por isso o CNAME sai sempre.
 A lista de clientes vem de ../propostas/clientes.json (a mesma das propostas) e os logos de assets/clientes/.
 A pasta docs/ é o que o GitHub Pages publica.
@@ -66,7 +67,9 @@ def svg(nome):
 
 
 def main():
-    pagina = (PASTA / "pagina.html").read_text(encoding="utf-8")
+    rascunho = "--rascunho" in sys.argv
+    saida = PASTA / "rascunho" if rascunho else SAIDA
+    pagina = (PASTA / ("pagina-v2.html" if rascunho else "pagina.html")).read_text(encoding="utf-8")
     trocas = {
         "<!--MARCA-ALTERNATIVA-BRANCO-->": svg("marca-alternativa-branco.svg"),
         "<!--MARCA-ALTERNATIVA-AZUL-->": svg("marca-alternativa-cor-azul.svg"),
@@ -76,14 +79,15 @@ def main():
         assert marcador in pagina, marcador
         pagina = pagina.replace(marcador, conteudo)
 
-    if SAIDA.exists():
-        shutil.rmtree(SAIDA)
-    shutil.copytree(PASTA / "assets", SAIDA / "assets",
+    if saida.exists():
+        shutil.rmtree(saida)
+    shutil.copytree(PASTA / "assets", saida / "assets",
                     ignore=shutil.ignore_patterns("marca-alternativa-*.svg", ".DS_Store"))
-    (SAIDA / "index.html").write_text(pagina, encoding="utf-8")
-    (SAIDA / "CNAME").write_text(DOMINIO + "\n")
-    tamanho_total = sum(f.stat().st_size for f in SAIDA.rglob("*") if f.is_file())
-    print(f"Site gerado em {SAIDA.relative_to(PASTA)}/ ({tamanho_total // 1024} KB)")
+    (saida / "index.html").write_text(pagina, encoding="utf-8")
+    if not rascunho:
+        (saida / "CNAME").write_text(DOMINIO + "\n")
+    tamanho_total = sum(f.stat().st_size for f in saida.rglob("*") if f.is_file())
+    print(f"Site gerado em {saida.relative_to(PASTA)}/ ({tamanho_total // 1024} KB)")
 
 
 if __name__ == "__main__":
