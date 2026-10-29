@@ -1,7 +1,7 @@
 """Monta o site para publicar: pagina.html + logos da marca + grade de clientes → docs/.
 
-Uso: python3 gerar-site.py            (endereço de teste do GitHub)
-     python3 gerar-site.py --dominio  (com o domínio www.georgedias.com.br, depois de trocar o DNS)
+Uso: python3 gerar-site.py
+O site está no ar em www.georgedias.com.br (DNS trocado em 28/10/2026), por isso o CNAME sai sempre.
 A lista de clientes vem de ../propostas/clientes.json (a mesma das propostas) e os logos de assets/clientes/.
 A pasta docs/ é o que o GitHub Pages publica.
 """
@@ -81,8 +81,7 @@ def main():
     shutil.copytree(PASTA / "assets", SAIDA / "assets",
                     ignore=shutil.ignore_patterns("marca-alternativa-*.svg", ".DS_Store"))
     (SAIDA / "index.html").write_text(pagina, encoding="utf-8")
-    if "--dominio" in sys.argv:
-        (SAIDA / "CNAME").write_text(DOMINIO + "\n")
+    (SAIDA / "CNAME").write_text(DOMINIO + "\n")
     tamanho_total = sum(f.stat().st_size for f in SAIDA.rglob("*") if f.is_file())
     print(f"Site gerado em {SAIDA.relative_to(PASTA)}/ ({tamanho_total // 1024} KB)")
 
