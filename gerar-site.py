@@ -1,7 +1,8 @@
 """Monta o site para publicar: pagina.html + logos da marca + grade de clientes → docs/.
 
 Uso: python3 gerar-site.py              (site que vai para o ar, em docs/)
-     python3 gerar-site.py --rascunho  (pagina-v2.html em rascunho/, só para ver no computador)
+     python3 gerar-site.py --rascunho  (mesma página em rascunho/, com as legendas dos espaços de foto,
+                                        só para ver no computador antes de publicar)
 O site está no ar em www.georgedias.com.br (DNS trocado em 28/10/2026), por isso o CNAME sai sempre.
 A lista de clientes vem de ../propostas/clientes.json (a mesma das propostas) e os logos de assets/clientes/.
 A pasta docs/ é o que o GitHub Pages publica.
@@ -80,7 +81,9 @@ def svg(nome):
 def main():
     rascunho = "--rascunho" in sys.argv
     saida = PASTA / "rascunho" if rascunho else SAIDA
-    pagina = (PASTA / ("pagina-v2.html" if rascunho else "pagina.html")).read_text(encoding="utf-8")
+    pagina = (PASTA / "pagina.html").read_text(encoding="utf-8")
+    if rascunho:
+        pagina = pagina.replace("<body>", '<body class="rascunho">', 1)
     trocas = {
         "<!--MARCA-ALTERNATIVA-BRANCO-->": svg("marca-alternativa-branco.svg"),
         "<!--MARCA-ALTERNATIVA-AZUL-->": svg("marca-alternativa-cor-azul.svg"),

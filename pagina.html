@@ -3,212 +3,352 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>George Dias Audiovisual · Foto, vídeo e conteúdo em Cuiabá-MT</title>
-<meta name="description" content="Produtora audiovisual de Cuiabá-MT: cobertura de eventos, aftermovie, filmes institucionais, produção de conteúdo e retratos corporativos.">
+<title>George Dias Audiovisual · Foto, vídeo e conteúdo</title>
+<meta name="description" content="George Dias Audiovisual: cobertura de eventos, aftermovie, filmes institucionais, produção de conteúdo e retratos corporativos. De Cuiabá-MT para onde a sua história estiver.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&family=Alegreya+SC:wght@400;500&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --marinho: #22304B;
     --areia: #C7C7B9;
-    --areia-clara: #EDECE6;
+    --papel: #EDECE6;
+    --painel: #E3E1D7;
     --caramelo: #A07E5A;
-    --texto: #22304B;
+    --linha: rgba(34, 48, 75, .18);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--areia-clara); color: var(--texto); font: 17px/1.6 "PT Sans", sans-serif; }
-  img { max-width: 100%; }
+  body { margin: 0; background: var(--papel); color: var(--marinho); font: 17px/1.65 "PT Sans", sans-serif; }
+  img { max-width: 100%; display: block; }
   a { color: inherit; }
-  h1, h2, h3 { font-family: "Alegreya SC", serif; font-weight: 400; line-height: 1.15; margin: 0; }
-  .largura { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: "Alegreya SC", serif; font-weight: 400; line-height: 1.05; margin: 0; }
+  p { margin: 0 0 1em; }
+  .largura { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  section { scroll-margin-top: 72px; }
+
+  /* Rótulos pequenos e o toque "à mão" */
+  .rotulo { font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+  .mao { font-family: "Alegreya", serif; font-style: italic; font-size: 21px; color: var(--caramelo); }
+  .ornamento { width: 84px; margin: 18px 0 28px; }
+
+  /* Fotos: enquanto não chegam as imagens, fica um espaço marcado */
+  .foto { position: relative; overflow: hidden; background: var(--areia); }
+  .foto img { width: 100%; height: 100%; object-fit: cover; }
+  .foto:not(:has(img))::before { content: ""; position: absolute; inset: 0; background: url(assets/gravura-linhas-marinho.png) no-repeat center / 70% auto; opacity: .12; }
+  .rascunho .foto:not(:has(img))::after { content: attr(data-legenda); position: absolute; left: 16px; bottom: 14px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+
+  .botao { display: inline-block; padding: 13px 26px; background: var(--marinho); color: var(--papel); font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+  .botao.contorno { background: transparent; color: var(--marinho); box-shadow: inset 0 0 0 1.5px var(--marinho); }
+  .acoes { display: flex; gap: 12px; flex-wrap: wrap; }
 
   /* Topo */
-  .topo { position: sticky; top: 0; z-index: 10; background: var(--marinho); color: #fff; }
-  .topo .largura { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+  .topo { position: sticky; top: 0; z-index: 10; background: rgba(237, 236, 230, .94); backdrop-filter: blur(6px); }
+  .topo .largura { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 72px; }
   .topo .marca svg { display: block; width: 150px; height: auto; }
-  .topo nav { display: flex; align-items: center; gap: 22px; font-size: 15px; }
-  .topo nav a { text-decoration: none; opacity: .85; }
-  .topo nav a:hover { opacity: 1; }
-  .botao { display: inline-block; padding: 12px 22px; border-radius: 999px; background: var(--areia-clara); color: var(--marinho); font-weight: 700; text-decoration: none; }
-  .botao.contorno { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px var(--areia); }
-  .topo nav .botao { padding: 8px 16px; opacity: 1; }
-  @media (max-width: 760px) { .topo nav a:not(.botao) { display: none; } .topo .marca svg { width: 130px; } }
+  .topo nav { display: flex; justify-content: flex-end; gap: 26px; }
+  .topo nav a { text-decoration: none; }
+  .topo nav a:hover, .topo nav a.destaque { box-shadow: inset 0 -1.5px 0 var(--marinho); }
+  @media (max-width: 860px) {
+    .topo .largura { grid-template-columns: auto 1fr; }
+    .topo .lema, .topo nav a:not(.destaque) { display: none; }
+    .topo .marca svg { width: 128px; }
+  }
 
   /* Abertura */
-  .abertura { position: relative; overflow: hidden; background: var(--marinho); color: #fff; text-align: center; padding: 72px 20px 96px; }
-  .abertura .gravura { position: absolute; bottom: -10px; width: 420px; opacity: .12; pointer-events: none; }
-  .abertura .gravura.esq { left: -60px; transform: scaleX(-1); }
-  .abertura .gravura.dir { right: -60px; }
-  .abertura .marca-casa { width: min(360px, 78vw); display: block; margin: 0 auto 36px; }
-  .abertura h1 { font-size: clamp(30px, 5vw, 48px); max-width: 820px; margin: 0 auto 14px; }
-  .abertura p { color: var(--areia); font-size: 19px; max-width: 640px; margin: 0 auto 32px; }
-  .abertura .acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .abertura { padding: 32px 0 96px; }
+  .abertura .largura { display: grid; grid-template-columns: 40px 7fr 5fr; gap: 0 40px; align-items: center; }
+  .numeros { display: grid; gap: 14px; align-self: start; padding-top: 40px; }
+  .numeros button { font: inherit; font-size: 12px; letter-spacing: .1em; background: none; border: 0; padding: 0; color: inherit; opacity: .45; cursor: pointer; text-align: left; }
+  .numeros button[aria-current="true"] { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+  .palco { position: relative; padding: 0 0 0 28px; }
+  .palco::before { content: ""; position: absolute; inset: 40px 0 -40px 0; background: var(--painel); z-index: -1; }
+  .slides { position: relative; aspect-ratio: 4 / 5; }
+  .slides .foto { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+  .slides .foto.ativa { opacity: 1; }
+  .legenda-palco { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-top: 1px solid var(--linha); margin-top: 18px; padding-top: 10px; }
+  .abertura h1 { font-size: clamp(46px, 6.2vw, 92px); margin: 18px 0 26px; }
+  .abertura .texto p { max-width: 380px; }
+  .abertura .acoes { margin-top: 30px; }
+  @media (max-width: 860px) {
+    .abertura .largura { grid-template-columns: 1fr; }
+    .numeros { grid-auto-flow: column; justify-content: start; padding: 0 0 12px; order: 2; }
+    .palco { order: 1; padding: 0; }
+    .palco::before { inset: 24px -24px -24px 24px; }
+    .abertura .texto { order: 3; padding-top: 48px; }
+  }
 
-  /* Seções */
-  section.bloco { padding: 88px 0; }
-  section { scroll-margin-top: 64px; }
-  .ornamento { display: block; width: 90px; margin: 14px 0 26px; }
-  .bloco h2 { font-size: clamp(30px, 4vw, 40px); }
-  .bloco .chamada { font-size: 19px; max-width: 720px; margin: 0 0 8px; }
+  /* Manifesto */
+  .manifesto { padding: 40px 0 120px; }
+  .manifesto .largura { display: grid; grid-template-columns: 4fr 8fr; gap: 56px; align-items: center; }
+  .manifesto h2 { font-size: clamp(34px, 4.4vw, 58px); letter-spacing: .08em; margin-bottom: 26px; }
+  .manifesto .foto { aspect-ratio: 16 / 10; box-shadow: 24px 24px 0 var(--painel); }
+  @media (max-width: 860px) { .manifesto .largura { grid-template-columns: 1fr; gap: 36px; } }
 
   /* Quem somos */
-  .colunas { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
-  @media (max-width: 860px) { .colunas { grid-template-columns: 1fr; gap: 28px; } }
-  .frentes { display: grid; gap: 12px; }
-  .frente { background: #fff; border-radius: 12px; padding: 18px 20px; }
-  .frente h3 { font-size: 21px; margin-bottom: 4px; }
-  .frente p { margin: 0; font-size: 15px; opacity: .85; }
+  .quem { padding: 40px 0 120px; }
+  .quem .largura { display: grid; grid-template-columns: 4fr 8fr; gap: 64px; align-items: start; }
+  .quem .retrato { aspect-ratio: 4 / 5; filter: grayscale(1); }
+  .quem h2 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.12; margin: 14px 0 0; }
+  .pilares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px solid var(--linha); margin-top: 40px; padding-top: 28px; }
+  .pilares .rotulo { display: block; margin-bottom: 10px; color: var(--caramelo); }
+  .pilares p { font-size: 16px; }
+  @media (max-width: 860px) {
+    .quem .largura { grid-template-columns: 1fr; gap: 32px; }
+    .quem .retrato { max-width: 360px; }
+    .pilares { grid-template-columns: 1fr; gap: 8px; }
+  }
 
-  /* Portfólio */
-  .portfolio { background: #fff; }
-  .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
-  .filtros button { font: inherit; font-size: 15px; padding: 8px 16px; border-radius: 999px; border: 1px solid #c9c8be; background: transparent; color: inherit; cursor: pointer; }
-  .filtros button[aria-pressed="true"] { background: var(--marinho); border-color: var(--marinho); color: #fff; }
-  .trabalhos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  @media (max-width: 900px) { .trabalhos { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .trabalhos { grid-template-columns: 1fr; } }
-  .trabalho { border-radius: 12px; overflow: hidden; background: var(--areia-clara); }
-  .trabalho .midia { aspect-ratio: 16 / 9; display: grid; place-items: center; background: repeating-linear-gradient(45deg, #e3e2da, #e3e2da 10px, #ebeae3 10px, #ebeae3 20px); color: #8b8a80; font-size: 14px; }
-  .trabalho .midia iframe, .trabalho .midia img { width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
-  .trabalho .legenda { padding: 12px 16px 16px; }
-  .trabalho .legenda strong { display: block; }
-  .trabalho .legenda span { font-size: 14px; opacity: .75; }
+  /* Frase central */
+  .frase { padding: 40px 24px 120px; text-align: center; }
+  .frase p { font-family: "Alegreya", serif; font-style: italic; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.3; max-width: 900px; margin: 0 auto; }
+  .frase .ornamento { margin: 28px auto 0; }
+
+  /* Faixa de foto de ponta a ponta */
+  .faixa { padding: 0 24px; }
+  .faixa .foto { aspect-ratio: 21 / 9; max-width: 1440px; margin: 0 auto; }
+  @media (max-width: 860px) { .faixa { padding: 0; } .faixa .foto { aspect-ratio: 4 / 3; } }
+
+  /* O que fazemos */
+  .fazemos { padding: 120px 0; }
+  .fazemos h2 { font-size: clamp(30px, 3.4vw, 46px); }
+  .lista { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 56px; }
+  .lista article { display: grid; grid-template-columns: 56px 1fr; gap: 4px 0; padding: 24px 0; border-top: 1px solid var(--linha); }
+  .lista .num { font-family: "Alegreya SC", serif; font-size: 22px; color: var(--caramelo); grid-row: span 2; }
+  .lista h3 { font-size: 24px; }
+  .lista p { margin: 0; font-size: 16px; }
+  @media (max-width: 860px) { .lista { grid-template-columns: 1fr; } }
+
+  /* Trabalhos recentes */
+  .trabalhos { background: var(--painel); padding: 96px 0 104px; }
+  .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; margin-top: 36px; }
+  .grade .foto { aspect-ratio: 4 / 3; }
+  .grade .ficha { border-top: 1px solid var(--marinho); margin-top: 18px; padding-top: 14px; }
+  .grade h3 { font-family: "PT Sans", sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .grade .rotulo { font-size: 11px; opacity: .65; }
+  @media (max-width: 860px) { .grade { grid-template-columns: 1fr; } }
 
   /* Clientes */
-  .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 8px; }
+  .clientes { padding: 104px 0; }
+  .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 36px; }
+  .logo { height: 96px; background: #fff; display: flex; align-items: center; justify-content: center; }
+  .logo img { object-fit: contain; display: inline; }
   @media (max-width: 760px) { .logos { grid-template-columns: repeat(2, 1fr); } }
-  .logo { height: 96px; background: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
-  .logo img { object-fit: contain; }
 
-  /* Orçamento */
-  .orcamento { position: relative; overflow: hidden; background: var(--marinho); color: #fff; text-align: center; }
-  .orcamento .gravura { position: absolute; right: -40px; bottom: -10px; width: 380px; opacity: .1; }
-  .orcamento p { color: var(--areia); max-width: 620px; margin: 10px auto 30px; font-size: 19px; }
-  .orcamento .ornamento { margin: 14px auto 18px; }
+  /* Fechamento */
+  .fechamento { padding: 40px 0 120px; }
+  .fechamento .largura { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: end; border-top: 1px solid var(--linha); padding-top: 72px; }
+  .fechamento h2 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.08; }
+  .fechamento .mao { display: inline-block; margin: 8px 0 22px; text-decoration: none; box-shadow: inset 0 -8px 0 rgba(160, 126, 90, .18); }
+  @media (max-width: 860px) { .fechamento .largura { grid-template-columns: 1fr; gap: 28px; } }
 
   /* Rodapé */
-  .rodape { padding: 48px 0; font-size: 15px; }
-  .rodape .largura { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
-  .rodape .marca svg { width: 170px; height: auto; display: block; }
-  .rodape a { text-decoration: none; }
-  .rodape .contatos { display: grid; gap: 4px; }
+  .rodape { background: var(--marinho); color: var(--papel); padding: 72px 0 32px; font-size: 15px; }
+  .rodape .colunas { display: grid; grid-template-columns: 4fr 3fr 3fr; gap: 40px; }
+  .rodape .marca svg { width: 170px; height: auto; display: block; margin-bottom: 16px; }
+  .rodape .rotulo { display: block; color: var(--areia); margin-bottom: 14px; font-size: 11px; }
+  .rodape a { text-decoration: none; display: block; margin-bottom: 6px; }
+  .rodape a:hover { text-decoration: underline; }
+  .rodape .direitos { border-top: 1px solid rgba(237, 236, 230, .18); margin-top: 56px; padding-top: 20px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--areia); }
+  @media (max-width: 760px) { .rodape .colunas { grid-template-columns: 1fr; gap: 28px; } }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .slides .foto { transition: none; } }
 </style>
 </head>
 <body>
 
 <header class="topo">
   <div class="largura">
-    <a class="marca" href="#inicio" aria-label="George Dias Audiovisual, início"><!--MARCA-ALTERNATIVA-BRANCO--></a>
+    <span class="lema rotulo">Foto · Vídeo · Conteúdo</span>
+    <a class="marca" href="#inicio" aria-label="George Dias Audiovisual, início"><!--MARCA-ALTERNATIVA-AZUL--></a>
     <nav>
       <a href="#quem-somos">Quem somos</a>
-      <a href="#portfolio">Portfólio</a>
+      <a href="#trabalhos">Trabalhos</a>
       <a href="#clientes">Clientes</a>
-      <a class="botao" href="#orcamento">Pedir orçamento</a>
+      <a class="destaque" href="#orcamento">Orçamento</a>
     </nav>
   </div>
 </header>
 
+<main>
+
 <section class="abertura" id="inicio">
-  <img class="gravura esq" src="assets/gravura-linhas-areia.png" alt="">
-  <img class="gravura dir" src="assets/gravura-linhas-areia.png" alt="">
-  <img class="marca-casa" src="assets/marca-casa-branco.png" alt="George Dias Audiovisual">
-  <h1>Foto, vídeo e conteúdo que contam a sua história</h1>
-  <p>Produtora audiovisual de Cuiabá-MT para eventos, empresas e marcas que querem ser lembradas. Vamos aonde a sua história acontecer.</p>
-  <div class="acoes">
-    <a class="botao" href="#orcamento">Pedir orçamento</a>
-    <a class="botao contorno" href="#portfolio">Ver portfólio</a>
+  <div class="largura">
+    <div class="numeros" role="group" aria-label="Fotos da abertura">
+      <button type="button" aria-current="true">01</button>
+      <button type="button">02</button>
+      <button type="button">03</button>
+      <button type="button">04</button>
+    </div>
+    <div class="palco">
+      <!-- FOTOS: 4 fotos fortes, na vertical (4:5) -->
+      <div class="slides">
+        <div class="foto ativa" data-legenda="Foto 1 · evento"></div>
+        <div class="foto" data-legenda="Foto 2 · bastidores"></div>
+        <div class="foto" data-legenda="Foto 3 · pessoas"></div>
+        <div class="foto" data-legenda="Foto 4 · detalhe"></div>
+      </div>
+      <div class="legenda-palco">
+        <span class="rotulo">George Dias Audiovisual</span>
+        <span class="mao">olhar de fotógrafo desde 2014</span>
+      </div>
+    </div>
+    <div class="texto">
+      <span class="rotulo">Cuiabá-MT · onde a sua história estiver</span>
+      <h1>Nenhuma história é igual.</h1>
+      <p>Por isso, nenhum cliente é mais um. A gente escuta o que você precisa, acompanha cada momento até o fim e entrega imagens feitas com o cuidado de quem assina cada uma delas.</p>
+      <div class="acoes">
+        <a class="botao" href="#orcamento">Pedir orçamento</a>
+        <a class="botao contorno" href="#trabalhos">Ver trabalhos</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="bloco" id="quem-somos">
-  <div class="largura colunas">
+<section class="manifesto">
+  <div class="largura">
     <div>
-      <h2>Quem somos</h2>
-      <img class="ornamento" src="assets/ornamento-cor-azul.png" alt="">
-      <p class="chamada">Desde 2014, conto histórias de empresas, eventos e pessoas com foto e vídeo.</p>
-      <p>Sou o George Dias, e o olhar de fotógrafo está em tudo o que entregamos: luz, enquadramento e cor cuidados em cada cena, seja numa foto ou num vídeo.</p>
-      <p>Hoje somos uma equipe de produtores de conteúdo que cuida de tudo, do roteiro à entrega. Conhecemos de perto o agro, a indústria e as marcas de Mato Grosso, e vamos aonde a história estiver: na feira do interior, na convenção da capital ou onde mais for preciso.</p>
-      <p>E a entrega não espera: com a edição em tempo real, fotos e vídeos chegam ainda durante o evento, prontos para as redes.</p>
+      <h2>Do roteiro à entrega</h2>
+      <p>Antes de ligar a câmera, a gente entende o que o seu evento, a sua empresa ou a sua marca precisa contar.</p>
+      <p>Depois, cuida de tudo: roteiro, captação, edição e entrega. Quando é preciso, as fotos e os vídeos chegam ainda durante o evento, prontos para as redes.</p>
     </div>
-    <div class="frentes">
-      <div class="frente"><h3>Cobertura de eventos</h3><p>Fotos, aftermovie, Stories e Reels enquanto o evento acontece.</p></div>
-      <div class="frente"><h3>Filmes institucionais</h3><p>A história da sua empresa contada a partir de um bom roteiro.</p></div>
-      <div class="frente"><h3>Produção de conteúdo</h3><p>Reels, fotos e vídeos para as redes, pontual ou todo mês.</p></div>
-      <div class="frente"><h3>Retratos corporativos</h3><p>A equipe e a diretoria com a imagem que a marca merece.</p></div>
+    <!-- FOTO: uma cena larga de evento ou bastidor (16:10) -->
+    <div class="foto" data-legenda="Foto · cena de evento"></div>
+  </div>
+</section>
+
+<section class="quem" id="quem-somos">
+  <div class="largura">
+    <!-- FOTO: retrato do George (fica em preto e branco) -->
+    <div class="foto retrato" data-legenda="Sua foto"></div>
+    <div>
+      <span class="rotulo">Quem somos</span>
+      <h2>Sou o George Dias. Desde 2014, transformo eventos, empresas e pessoas em imagens que ficam.</h2>
+      <div class="pilares">
+        <div>
+          <span class="rotulo">O olhar</span>
+          <p>O olhar de fotógrafo está em cada cena: luz, enquadramento e cor cuidados, seja numa foto ou num vídeo.</p>
+        </div>
+        <div>
+          <span class="rotulo">A equipe</span>
+          <p>Uma equipe de produtores de conteúdo que conhece de perto o agro, a indústria e as marcas de Mato Grosso.</p>
+        </div>
+        <div>
+          <span class="rotulo">O cuidado</span>
+          <p>Vamos aonde a história estiver, na feira do interior ou na convenção da capital, e ficamos até o último momento.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="bloco portfolio" id="portfolio">
+<section class="frase">
+  <p>Aqui, você não é mais um cliente.<br>É a próxima história que a gente vai contar.</p>
+  <img class="ornamento" src="assets/ornamento-cor-azul.png" alt="">
+</section>
+
+<div class="faixa">
+  <!-- FOTO: a imagem mais forte, bem larga (21:9) -->
+  <div class="foto" data-legenda="Foto de ponta a ponta"></div>
+</div>
+
+<section class="fazemos">
   <div class="largura">
-    <h2>Portfólio</h2>
+    <span class="rotulo">O que fazemos</span>
     <img class="ornamento" src="assets/ornamento-cor-azul.png" alt="">
-    <div class="filtros" role="group" aria-label="Filtrar trabalhos">
-      <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
-      <button type="button" data-filtro="eventos" aria-pressed="false">Eventos</button>
-      <button type="button" data-filtro="institucional" aria-pressed="false">Filmes institucionais</button>
-      <button type="button" data-filtro="conteudo" aria-pressed="false">Conteúdo</button>
-      <button type="button" data-filtro="fotos" aria-pressed="false">Fotos</button>
-    </div>
-    <!-- RASCUNHO: os espaços abaixo esperam os vídeos e fotos escolhidos pelo George -->
-    <div class="trabalhos">
-      <article class="trabalho" data-tipo="eventos"><div class="midia">vídeo do evento</div><div class="legenda"><strong>Aftermovie de feira</strong><span>Cobertura de evento</span></div></article>
-      <article class="trabalho" data-tipo="eventos"><div class="midia">vídeo do evento</div><div class="legenda"><strong>Convenção</strong><span>Cobertura de evento</span></div></article>
-      <article class="trabalho" data-tipo="institucional"><div class="midia">filme institucional</div><div class="legenda"><strong>Filme institucional</strong><span>Empresa</span></div></article>
-      <article class="trabalho" data-tipo="conteudo"><div class="midia">Reels</div><div class="legenda"><strong>Reels 60s</strong><span>Produção de conteúdo</span></div></article>
-      <article class="trabalho" data-tipo="fotos"><div class="midia">foto</div><div class="legenda"><strong>Fotografia de evento</strong><span>Fotos</span></div></article>
-      <article class="trabalho" data-tipo="fotos"><div class="midia">foto</div><div class="legenda"><strong>Retratos corporativos</strong><span>Fotos</span></div></article>
+    <div class="lista">
+      <article><span class="num">01</span><h3>Cobertura de eventos</h3><p>Fotos, aftermovie, Stories e Reels enquanto o evento acontece.</p></article>
+      <article><span class="num">02</span><h3>Produção de conteúdo</h3><p>Reels, fotos e vídeos para as redes, pontual ou todo mês.</p></article>
+      <article><span class="num">03</span><h3>Filmes institucionais</h3><p>A história da sua empresa contada a partir de um bom roteiro.</p></article>
+      <article><span class="num">04</span><h3>Retratos corporativos</h3><p>A equipe e a diretoria com a imagem que a marca merece.</p></article>
     </div>
   </div>
 </section>
 
-<section class="bloco" id="clientes">
+<section class="trabalhos" id="trabalhos">
   <div class="largura">
-    <h2>Clientes atendidos</h2>
-    <img class="ornamento" src="assets/ornamento-cor-azul.png" alt="">
+    <span class="rotulo">Trabalhos recentes</span>
+    <!-- TRABALHOS: cada um com foto ou vídeo, cliente e tipo de trabalho -->
+    <div class="grade">
+      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Aftermovie</span></div></article>
+      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Filme institucional</span></div></article>
+      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Produção de conteúdo</span></div></article>
+      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Cobertura de evento</span></div></article>
+      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Retratos corporativos</span></div></article>
+      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Reels 60s</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="clientes" id="clientes">
+  <div class="largura">
+    <span class="rotulo">Quem já confiou na gente</span>
     <div class="logos">
 <!--CLIENTES-->
     </div>
   </div>
 </section>
 
-<section class="bloco orcamento" id="orcamento">
-  <img class="gravura" src="assets/gravura-linhas-areia.png" alt="">
+<section class="fechamento" id="orcamento">
   <div class="largura">
-    <h2>Vamos falar do seu projeto?</h2>
-    <img class="ornamento" src="assets/ornamento-branco.png" alt="">
-    <p>Conte o que você precisa em 2 minutos. A proposta chega bem mais rápido.</p>
-    <div class="acoes" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a class="botao" href="https://script.google.com/macros/s/AKfycbzc53jPV8LAUp-3EAD1eHmk_6hxuBWTXmq7SLSG-VUhVtuOAQpBBFWtzCxayiC-kcsLOQ/exec">Pedir orçamento</a>
-      <a class="botao contorno" href="https://wa.me/5565992266942">Falar no WhatsApp</a>
+    <h2>Obrigado por chegar até aqui. Vamos contar a sua história?</h2>
+    <div>
+      <p>Conte o que você precisa em 2 minutos: o tipo de trabalho, a data e a cidade. A proposta chega bem mais rápido, com a atenção que o seu projeto merece.</p>
+      <a class="mao" href="https://wa.me/5565992266942">vamos conversar →</a>
+      <div class="acoes">
+        <a class="botao" href="https://script.google.com/macros/s/AKfycbzc53jPV8LAUp-3EAD1eHmk_6hxuBWTXmq7SLSG-VUhVtuOAQpBBFWtzCxayiC-kcsLOQ/exec">Pedir orçamento</a>
+        <a class="botao contorno" href="https://wa.me/5565992266942">WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer class="rodape">
   <div class="largura">
-    <span class="marca"><!--MARCA-ALTERNATIVA-AZUL--></span>
-    <div class="contatos">
-      <a href="https://wa.me/5565992266942">WhatsApp (65) 9 9226-6942</a>
-      <a href="mailto:contato@georgedias.com.br">contato@georgedias.com.br</a>
-      <span>Cuiabá - MT</span>
+    <div class="colunas">
+      <div>
+        <span class="marca"><!--MARCA-ALTERNATIVA-BRANCO--></span>
+        <p>Cuiabá - MT<br>Onde a sua história estiver.</p>
+      </div>
+      <div>
+        <span class="rotulo">Contato</span>
+        <a href="https://wa.me/5565992266942">WhatsApp (65) 9 9226-6942</a>
+        <a href="mailto:contato@georgedias.com.br">contato@georgedias.com.br</a>
+      </div>
+      <div>
+        <span class="rotulo">Orçamento</span>
+        <a href="https://script.google.com/macros/s/AKfycbzc53jPV8LAUp-3EAD1eHmk_6hxuBWTXmq7SLSG-VUhVtuOAQpBBFWtzCxayiC-kcsLOQ/exec">Pedir orçamento</a>
+        <!-- REDES: Instagram e YouTube entram aqui quando o George mandar os links -->
+      </div>
     </div>
+    <div class="direitos">© 2026 George Dias Audiovisual</div>
   </div>
 </footer>
 
 <script>
-  // Filtro do portfólio
-  document.querySelectorAll('.filtros button').forEach(function (botao) {
-    botao.addEventListener('click', function () {
-      var filtro = botao.getAttribute('data-filtro');
-      document.querySelectorAll('.filtros button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === botao)); });
-      document.querySelectorAll('.trabalho').forEach(function (t) {
-        t.hidden = filtro !== 'todos' && t.getAttribute('data-tipo') !== filtro;
-      });
+  // Fotos da abertura: trocam sozinhas a cada 5 s e pelos números
+  (function () {
+    var fotos = document.querySelectorAll('.slides .foto');
+    var botoes = document.querySelectorAll('.numeros button');
+    var atual = 0, timer;
+    function mostrar(i) {
+      fotos[atual].classList.remove('ativa');
+      botoes[atual].removeAttribute('aria-current');
+      atual = i;
+      fotos[atual].classList.add('ativa');
+      botoes[atual].setAttribute('aria-current', 'true');
+    }
+    function iniciar() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      timer = setInterval(function () { mostrar((atual + 1) % fotos.length); }, 5000);
+    }
+    botoes.forEach(function (b, i) {
+      b.addEventListener('click', function () { clearInterval(timer); mostrar(i); iniciar(); });
     });
-  });
+    iniciar();
+  })();
 </script>
 </body>
 </html>
