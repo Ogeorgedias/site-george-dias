@@ -122,10 +122,18 @@
   /* Trabalhos recentes */
   .trabalhos { background: var(--painel); padding: 96px 0 104px; }
   .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; margin-top: 36px; }
-  .grade .foto { aspect-ratio: 4 / 3; }
-  .grade .ficha { border-top: 1px solid var(--marinho); margin-top: 18px; padding-top: 14px; }
+    .grade .ficha { border-top: 1px solid var(--marinho); margin-top: 18px; padding-top: 14px; }
   .grade h3 { font-family: "PT Sans", sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .grade .rotulo { font-size: 11px; opacity: .65; }
+  .grade .rotulo { display: block; font-size: 11px; line-height: 1.6; opacity: .65; }
+  .grade .video { aspect-ratio: 16 / 9; width: 100%; padding: 0; border: 0; cursor: pointer; color: var(--papel); }
+  .grade .video img { transition: transform .6s ease, filter .6s ease; filter: saturate(.9); }
+  .grade .video:hover img, .grade .video:focus-visible img { transform: scale(1.03); filter: none; }
+  .grade .video:focus-visible { outline: 2px solid var(--marinho); outline-offset: 4px; }
+  .play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(34, 48, 75, .82); box-shadow: 0 0 0 1.5px rgba(237, 236, 230, .7); transition: background .3s ease; }
+  .play::before { content: ""; position: absolute; left: 26px; top: 21px; border-style: solid; border-width: 11px 0 11px 17px; border-color: transparent transparent transparent var(--papel); }
+  .grade .video:hover .play { background: var(--caramelo); }
+  .grade iframe { position: relative; z-index: 1; width: 100%; height: 100%; border: 0; display: block; background: #000; }
+  .grade div.video::before { display: none; }
   @media (max-width: 860px) { .grade { grid-template-columns: 1fr; } }
 
   /* Clientes */
@@ -291,14 +299,11 @@
 <section class="trabalhos" id="trabalhos">
   <div class="largura">
     <span class="rotulo">Trabalhos recentes</span>
-    <!-- TRABALHOS: cada um com foto ou vídeo, cliente e tipo de trabalho -->
+    <!-- TRABALHOS: vídeo do YouTube em miniatura; o player só carrega ao tocar (ver script no fim) -->
     <div class="grade">
-      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Aftermovie</span></div></article>
-      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Filme institucional</span></div></article>
-      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Produção de conteúdo</span></div></article>
-      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Cobertura de evento</span></div></article>
-      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Retratos corporativos</span></div></article>
-      <article><div class="foto" data-legenda="Foto ou vídeo do trabalho"></div><div class="ficha"><h3>Cliente</h3><span class="rotulo">Reels 60s</span></div></article>
+      <article><button class="foto video" type="button" data-video="Ye5VhVwp15E" aria-label="Assistir: Respiração em Três Tempos · Estreia mundial"><img src="assets/trabalhos/sesi.jpg" alt="" width="960" height="540" loading="lazy"><span class="play" aria-hidden="true"></span></button><div class="ficha"><h3>SESI Mato Grosso</h3><span class="rotulo">Respiração em Três Tempos · Estreia mundial</span></div></article>
+      <article><button class="foto video" type="button" data-video="eE06JS6yYmo" aria-label="Assistir: Caminhão Nossa Energia"><img src="assets/trabalhos/energisa.jpg" alt="" width="960" height="540" loading="lazy"><span class="play" aria-hidden="true"></span></button><div class="ficha"><h3>Energisa Mato Grosso</h3><span class="rotulo">Caminhão Nossa Energia</span></div></article>
+      <article><button class="foto video" type="button" data-video="hAULovqxHoE" aria-label="Assistir: Sicredi no Show Safra 2026"><img src="assets/trabalhos/sicredi.jpg" alt="" width="960" height="540" loading="lazy"><span class="play" aria-hidden="true"></span></button><div class="ficha"><h3>Sicredi Ouro Verde</h3><span class="rotulo">Sicredi no Show Safra 2026</span></div></article>
     </div>
   </div>
 </section>
@@ -410,6 +415,22 @@
     });
     iniciar();
   })();
+</script>
+<script>
+  // Trabalhos: troca a miniatura pelo player do YouTube só quando a pessoa toca (o site fica leve)
+  document.querySelectorAll('.grade .video').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.video + '?autoplay=1&rel=0&playsinline=1';
+      f.title = b.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      var caixa = document.createElement('div');
+      caixa.className = 'foto video';
+      caixa.appendChild(f);
+      b.replaceWith(caixa);
+    });
+  });
 </script>
 </body>
 </html>
