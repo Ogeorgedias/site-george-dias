@@ -121,7 +121,14 @@
 
   /* Trabalhos recentes */
   .trabalhos { background: var(--painel); padding: 96px 0 104px; }
-  .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; margin-top: 36px; }
+  .grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px 40px; margin-top: 36px; }
+  /* Mostra só os 4 mais recentes; o botão "Ver mais trabalhos" abre o resto */
+  .grade article:nth-child(n+5) { display: none; }
+  .grade.aberta article:nth-child(n+5) { display: block; animation: surge .5s ease both; }
+  @keyframes surge { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .mais { text-align: center; margin-top: 56px; }
+  .mais .botao { font-family: "PT Sans", sans-serif; border: 0; cursor: pointer; }
+  .mais .botao:hover { background: var(--marinho); color: var(--papel); }
     .grade .ficha { border-top: 1px solid var(--marinho); margin-top: 18px; padding-top: 14px; }
   .grade h3 { font-family: "PT Sans", sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
   .grade .rotulo { display: block; font-size: 11px; line-height: 1.6; opacity: .65; }
@@ -160,7 +167,7 @@
   .rodape .direitos { border-top: 1px solid rgba(237, 236, 230, .18); margin-top: 56px; padding-top: 20px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--areia); }
   @media (max-width: 760px) { .rodape .colunas { grid-template-columns: 1fr; gap: 28px; } }
 
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .slides .foto { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .slides .foto { transition: none; } .grade.aberta article { animation: none; } }
 </style>
 </head>
 <body>
@@ -291,6 +298,7 @@
       <article><button class="foto video" type="button" data-video="eE06JS6yYmo" aria-label="Assistir: Caminhão Nossa Energia"><img src="assets/trabalhos/energisa.jpg" alt="" width="960" height="540" loading="lazy"><span class="play" aria-hidden="true"></span></button><div class="ficha"><h3>Energisa Mato Grosso</h3><span class="rotulo">Caminhão Nossa Energia</span></div></article>
       <article><button class="foto video" type="button" data-video="OEAIA8BB9UQ" aria-label="Assistir: SESI no Teatro · O Sertão Dentro de Nós"><img src="assets/trabalhos/sesi-sertao.jpg" alt="" width="960" height="540" loading="lazy"><span class="play" aria-hidden="true"></span></button><div class="ficha"><h3>SESI Mato Grosso</h3><span class="rotulo">SESI no Teatro · O Sertão Dentro de Nós</span></div></article>
     </div>
+    <div class="mais"><button class="botao contorno" type="button" aria-expanded="false" data-mais>Ver mais trabalhos</button></div>
   </div>
 </section>
 
@@ -379,6 +387,23 @@
       b.replaceWith(caixa);
     });
   });
+</script>
+<script>
+  // Trabalhos: "Ver mais" abre os outros vídeos; "Ver menos" fecha e volta para o começo da seção
+  (function () {
+    var b = document.querySelector('[data-mais]'), g = document.querySelector('.grade');
+    if (!b || !g) return;
+    var extras = g.querySelectorAll('article').length - 4;
+    if (extras <= 0) { b.parentNode.remove(); return; }
+    b.textContent = 'Ver mais trabalhos (' + extras + ')';
+    b.addEventListener('click', function () {
+      var abrir = !g.classList.contains('aberta');
+      g.classList.toggle('aberta', abrir);
+      b.setAttribute('aria-expanded', abrir);
+      b.textContent = abrir ? 'Ver menos' : 'Ver mais trabalhos (' + extras + ')';
+      if (!abrir) document.getElementById('trabalhos').scrollIntoView();
+    });
+  })();
 </script>
 </body>
 </html>
