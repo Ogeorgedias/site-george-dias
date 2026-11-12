@@ -153,6 +153,24 @@
   .grade div.video::before { display: none; }
   @media (max-width: 860px) { .grade { grid-template-columns: 1fr; } }
 
+  /* Retratos corporativos: 4 retratos fora do fundo branco, cada um de um cliente e de um lugar */
+  .retratos { padding: 104px 0 0; }
+  .retratos .cabeca { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: end; }
+  .retratos h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 14px; }
+  .retratos .cabeca p { margin: 0; max-width: 420px; justify-self: end; }
+  .galeria-retratos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
+  .galeria-retratos figure { margin: 0; }
+  .galeria-retratos .foto { aspect-ratio: 4 / 5; }
+  .galeria-retratos figcaption { display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid var(--marinho); margin-top: 14px; padding-top: 10px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+  .galeria-retratos figcaption b { letter-spacing: .2em; }
+  .galeria-retratos figcaption span { opacity: .65; }
+  @media (max-width: 860px) {
+    .retratos .cabeca { grid-template-columns: 1fr; gap: 16px; }
+    .retratos .cabeca p { justify-self: start; }
+    .galeria-retratos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
+    .galeria-retratos figcaption { flex-direction: column; gap: 0; font-size: 10px; }
+  }
+
   /* Na imprensa: matérias que publicaram as nossas fotos (lista em ordem de publicação, mais nova primeiro) */
   .imprensa { padding: 104px 0 0; }
   .imprensa .cabeca { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: end; }
@@ -338,6 +356,26 @@
       <article><button class="foto video" type="button" data-video="OEAIA8BB9UQ" aria-label="Assistir: SESI no Teatro · O Sertão Dentro de Nós"><img src="assets/trabalhos/sesi-sertao.jpg" alt="" width="960" height="540" loading="lazy"><span class="play" aria-hidden="true"></span></button><div class="ficha"><h3>SESI Mato Grosso</h3><span class="rotulo">SESI no Teatro · O Sertão Dentro de Nós</span></div></article>
     </div>
     <div class="mais"><button class="botao contorno" type="button" aria-expanded="false" data-mais>Ver mais trabalhos</button></div>
+  </div>
+</section>
+
+<section class="retratos" id="retratos">
+  <div class="largura">
+    <div class="cabeca">
+      <div>
+        <span class="rotulo">Retratos corporativos</span>
+        <h2>Retratos onde o trabalho acontece</h2>
+      </div>
+      <p>Na obra, no escritório ou no hotel: fotografamos a equipe e a diretoria no dia a dia de cada um.</p>
+    </div>
+    <!-- RETRATOS: escolhidos pelo George em 12/11/2026, todos fora do fundo branco, cada um de um cliente.
+         Abitte (Luzimar, na obra), SESI MT (Alexandre Serafim), Slaviero (Eduardo, Convenção 2026), Agro Amazônia (Roberto). O nome das pessoas não aparece. -->
+    <div class="galeria-retratos">
+      <figure><div class="foto"><img src="assets/retratos/luzimar.jpg" alt="Retrato de executiva da Abitte, de capacete e braços cruzados, no canteiro de obras" width="960" height="1200" loading="lazy"></div><figcaption><b>Abitte</b><span>Na obra</span></figcaption></figure>
+      <figure><div class="foto"><img src="assets/retratos/serafim.jpg" alt="Retrato do superintendente do SESI Mato Grosso à mesa do escritório" width="960" height="1200" loading="lazy"></div><figcaption><b>SESI Mato Grosso</b><span>No escritório</span></figcaption></figure>
+      <figure><div class="foto"><img src="assets/retratos/eduardo.jpg" alt="Retrato de executivo da Slaviero apoiado numa mesa de madeira, com a janela ao fundo" width="960" height="1200" loading="lazy"></div><figcaption><b>Slaviero Hospitalidade</b><span>No hotel</span></figcaption></figure>
+      <figure><div class="foto"><img src="assets/retratos/roberto.jpg" alt="Retrato de executivo da Agro Amazônia sorrindo à mesa do escritório" width="960" height="1200" loading="lazy"></div><figcaption><b>Agro Amazônia</b><span>No escritório</span></figcaption></figure>
+    </div>
   </div>
 </section>
 
