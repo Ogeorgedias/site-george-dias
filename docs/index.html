@@ -153,6 +153,33 @@
   .grade div.video::before { display: none; }
   @media (max-width: 860px) { .grade { grid-template-columns: 1fr; } }
 
+  /* Na imprensa: matérias que publicaram as nossas fotos (lista em ordem de publicação, mais nova primeiro) */
+  .imprensa { padding: 104px 0 0; }
+  .imprensa .cabeca { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: end; }
+  .imprensa h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 14px; }
+  .imprensa .conta { display: flex; align-items: center; gap: 18px; justify-self: end; }
+  .imprensa .conta strong { font-family: "Alegreya SC", serif; font-weight: 400; font-size: clamp(64px, 8vw, 104px); line-height: .9; color: var(--caramelo); }
+  .imprensa .conta span { font-size: 15px; line-height: 1.4; max-width: 210px; }
+  .materias { list-style: none; margin: 40px 0 0; padding: 0; border-bottom: 1px solid var(--linha); }
+  .materias li:nth-child(n+7) { display: none; }
+  .materias.aberta li:nth-child(n+7) { display: block; animation: surge .5s ease both; }
+  .materias a { display: grid; grid-template-columns: 150px 1fr 28px; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--linha); text-decoration: none; }
+  .materias .onde { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+  .materias .onde b { display: block; letter-spacing: .2em; }
+  .materias .onde time { opacity: .65; }
+  .materias .titulo { font-size: 19px; line-height: 1.4; }
+  .materias .seta { justify-self: end; color: var(--caramelo); transition: transform .3s ease; }
+  .materias a:hover .titulo { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+  .materias a:hover .seta { transform: translate(3px, -3px); }
+  @media (max-width: 860px) {
+    .imprensa .cabeca { grid-template-columns: 1fr; gap: 24px; }
+    .imprensa .conta { justify-self: start; }
+    .materias a { grid-template-columns: 1fr 24px; gap: 6px 16px; }
+    .materias .onde { grid-column: 1 / -1; display: flex; gap: 10px; }
+    .materias .onde b { display: inline; }
+    .materias .titulo { font-size: 17px; }
+  }
+
   /* Clientes */
   .clientes { padding: 104px 0; }
   .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 36px; }
@@ -177,7 +204,7 @@
   .rodape .direitos { border-top: 1px solid rgba(237, 236, 230, .18); margin-top: 56px; padding-top: 20px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--areia); }
   @media (max-width: 760px) { .rodape .colunas { grid-template-columns: 1fr; gap: 28px; } }
 
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .slides .foto { transition: none; } .grade.aberta article { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .slides .foto { transition: none; } .grade.aberta article, .materias.aberta li { animation: none; } }
 </style>
 </head>
 <body>
@@ -335,6 +362,64 @@
   </div>
 </section>
 
+<section class="imprensa" id="imprensa">
+  <div class="largura">
+    <div class="cabeca">
+      <div>
+        <span class="rotulo">Na imprensa</span>
+        <h2>Nossas fotos nas notícias</h2>
+      </div>
+      <p class="conta"><strong>41</strong><span>matérias do SESI Mato Grosso publicadas com fotos nossas</span></p>
+    </div>
+    <!-- MATÉRIAS: notícias com o crédito "Foto: George Dias", em ordem de publicação (mais nova primeiro).
+         Achadas na busca do site do SESI MT (sesimt.ind.br/noticias/pesquisa?qs=George+Dias), que é a mesma da FIEMT e do SENAI. Conferidas em 12/11/2026. -->
+    <ol class="materias">
+      <li><a href="https://sesimt.ind.br/noticias/6795/sinfonia-inedita-de-ronaldo-miranda-celebra-os-50-anos-do-sesi-mt-e-exalta-os-biomas-de-mato-grosso" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-10-16">16 out 2026</time></span><span class="titulo">Sinfonia inédita de Ronaldo Miranda celebra os 50 anos do Sesi MT e exalta os biomas de Mato Grosso</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6794/sesi-mt-lanca-instituto-de-inovacao-social-para-conectar-empresas-a-solucoes-com-impacto-territorial" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-10-15">15 out 2026</time></span><span class="titulo">Sesi MT lança Instituto de Inovação Social para conectar empresas a soluções com impacto territorial</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6791/sesi-mt-homenageia-industrias-parceiras-por-iniciativas-de-transformacao-social" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-10-13">13 out 2026</time></span><span class="titulo">Sesi MT homenageia indústrias parceiras por iniciativas de transformação social</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6789/sesi-mt-celebra-50-anos-ao-som-da-genialidade-de-joao-carlos-martins-icone-mundial-da-musica-classica" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-10-13">13 out 2026</time></span><span class="titulo">Sesi MT celebra 50 anos ao som da genialidade de João Carlos Martins, ícone mundial da música clássica</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6785/com-apoio-do-hub-sesi-experience-startup-e-selecionada-em-programa-do-governo-de-mato-grosso" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-10-09">9 out 2026</time></span><span class="titulo">Com apoio do HUB SESI Experience, startup é selecionada em programa do Governo de Mato Grosso</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6751/alunos-do-projeto-extraclasse-em-aripuana-apresentam-a-forca-da-educacao-em-noite-cultural-e-pedagogica" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-09-25">25 set 2026</time></span><span class="titulo">Alunos do projeto Extraclasse em Aripuanã apresentam a força da educação em noite cultural e pedagógica</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6737/time-vencedor-do-hackathon-sesi-experience-garante-vaga-em-missao-tecnica-internacional-para-lisboa" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-09-21">21 set 2026</time></span><span class="titulo">Time vencedor do Hackathon SESI Experience garante vaga em missão técnica internacional para Lisboa</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6655/aluna-do-sesi-na-pista-conquista-topo-do-podio-na-corrida-maraja" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-08-25">25 ago 2026</time></span><span class="titulo">Aluna do Sesi na Pista conquista topo do pódio na corrida Marajá</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6594/justica-do-trabalho-e-ministerio-publico-destacam-sesi-experience-como-aliado-na-prevencao-de-acidentes-laborais" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-08-06">6 ago 2026</time></span><span class="titulo">Justiça do Trabalho e Ministério Público destacam Sesi Experience como aliado na prevenção de acidentes laborais</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6376/corrida-da-industria-marca-os-50-anos-do-sesi-mato-grosso-com-integracao-esporte-e-celebracao" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-06-01">1 jun 2026</time></span><span class="titulo">Corrida da Indústria marca os 50 anos do Sesi Mato Grosso com integração, esporte e celebração</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6351/projeto-do-sesi-mt-e-maraja-transforma-rotina-de-criancas-com-esporte-e-cultura-em-vg" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-05-25">25 mai 2026</time></span><span class="titulo">Projeto do Sesi MT e Marajá transforma rotina de crianças com esporte e cultura em VG</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6310/orquestra-sesi-mt-e-o-violinista-internacional-carmelo-de-los-santos-unem-tradicao-e-reinvencao-em-concerto-de-alto-nivel-tecnico" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-05-11">11 mai 2026</time></span><span class="titulo">Orquestra Sesi MT e o violinista internacional Cármelo de Los Santos unem tradição e reinvenção em concerto de alto nível técnico</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6308/excelencia-em-imunizacao-sesi-mt-inicia-capacitacao-de-profissionais-da-saude-publica-que-atuam-nas-salas-de-vacinas-do-estado" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-05-08">8 mai 2026</time></span><span class="titulo">Excelência em Imunização: Sesi MT inicia capacitação de profissionais da saúde pública que atuam nas salas de vacinas do estado</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6104/vozes-e-interpretacoes-femininas-marcam-concerto-de-abertura-da-temporada-2026-da-orquestra-sesi-mt" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-03-09">9 mar 2026</time></span><span class="titulo">Vozes e interpretações femininas marcam concerto de abertura da temporada 2026 da Orquestra Sesi MT</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6023/comitiva-nacional-do-sesi-destaca-estrutura-moderna-e-trabalho-eficaz-das-unidades-de-mato-grosso" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-02-13">13 fev 2026</time></span><span class="titulo">Comitiva nacional do Sesi destaca estrutura moderna e trabalho eficaz das unidades de Mato Grosso</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/6012/companhia-sesi-de-danca-seleciona-bailarinos-para-temporada-de-2026" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-02-06">6 fev 2026</time></span><span class="titulo">Companhia Sesi de Dança seleciona bailarinos para temporada de 2026</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5960/pelotao-da-industria-reune-1500-corredores-e-promove-saude-e-qualidade-de-vida-na-41a-corrida-de-reis" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2026-01-12">12 jan 2026</time></span><span class="titulo">Pelotão da Indústria reúne 1.500 corredores e promove saúde e qualidade de vida na 41ª Corrida de Reis</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5937/sesi-na-arena-edicao-de-natal-transforma-a-area-externa-da-arena-pantanal-em-um-grande-palco-de-celebracao" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-12-15">15 dez 2025</time></span><span class="titulo">Sesi na Arena – Edição de Natal transforma a área externa da Arena Pantanal em um grande palco de celebração</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5920/concerto-especial-encanta-publico-em-celebracao-aos-55-anos-da-ufmt" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-12-09">9 dez 2025</time></span><span class="titulo">Concerto especial encanta público em celebração aos 55 anos da UFMT</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5865/festival-de-robotica-amplia-vivencia-tecnologica-e-inspira-futuros-profissionais-da-industria-em-mato-grosso" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-18">18 nov 2025</time></span><span class="titulo">Festival de Robótica amplia vivência tecnológica e inspira futuros profissionais da indústria em Mato Grosso</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5864/ii-festival-de-robotica-educacional-mostra-cientifica-celebra-inovacao-impacto-social-e-protagonismo-estudantil-confira-os-vencedores" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-17">17 nov 2025</time></span><span class="titulo">II Festival de Robótica Educacional: Mostra Científica celebra inovação, impacto social e protagonismo estudantil; confira os vencedores</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5862/times-do-sesi-escola-vg-e-da-escola-estadual-heliodoro-vao-representar-mt-no-torneio-nacional-de-robotica" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-15">15 nov 2025</time></span><span class="titulo">Times do Sesi Escola VG e da Escola Estadual Heliodoro vão representar MT no Torneio Nacional de Robótica</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5858/campeonato-do-cerrado-de-cubo-magico-movimenta-ii-festival-de-robotica-educacional-em-cuiaba" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-14">14 nov 2025</time></span><span class="titulo">Campeonato do Cerrado de Cubo Mágico movimenta II Festival de Robótica Educacional em Cuiabá</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5854/nutre-mais-leva-sabor-e-energia-ao-ii-festival-de-robotica-educacional-de-mt" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-14">14 nov 2025</time></span><span class="titulo">Nutre Mais leva sabor e energia ao II Festival de Robótica Educacional de MT</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5851/cuiaba-abre-ii-festival-de-robotica-2025-com-mais-de-500-estudantes-e-foco-em-tecnologia-e-futuro" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-14">14 nov 2025</time></span><span class="titulo">Cuiabá abre II Festival de Robótica 2025 com mais de 500 estudantes e foco em tecnologia e futuro</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5828/gestao-da-agua-na-industria-e-destaque-em-painel-no-ultimo-dia-da-expoind-mt-2025" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-06">6 nov 2025</time></span><span class="titulo">Gestão da água na indústria é destaque em painel no último dia da Expoind MT 2025</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5821/sesi-experience-simulacao-de-acidentes-em-ambientes-controlados-atrai-publico-da-expoind-mt-2025" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-06">6 nov 2025</time></span><span class="titulo">Sesi Experience: Simulação de acidentes em ambientes controlados atrai público da Expoind MT 2025</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5816/expoind-mt-2025-segundo-painel-do-dia-debate-riscos-psicossociais-e-desafios-das-novas-nrs-na-industria" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-05">5 nov 2025</time></span><span class="titulo">Expoind MT 2025: Segundo painel do dia debate riscos psicossociais e desafios das novas NRs na indústria</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5805/orquestra-sesi-mt-e-thiago-sampaio-se-apresentam-em-concerto-gratuito-em-matupa" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-11-03">3 nov 2025</time></span><span class="titulo">Orquestra Sesi MT e Thiago Sampaio se apresentam em concerto gratuito em Matupá</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5797/nexa-aripuana-e-sesi-mt-lancam-programa-sesi-extra-classe-para-criancas-e-adolescentes" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-10-29">29 out 2025</time></span><span class="titulo">Nexa Aripuanã e Sesi MT lançam programa “Sesi Extra Classe” para crianças e adolescentes</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5789/teatro-lotado-e-producao-impecavel-marcam-espetaculo-dorothy-e-o-magico-do-sertao-do-sesi-escola" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-10-27">27 out 2025</time></span><span class="titulo">Teatro lotado e produção impecável marcam espetáculo “Dorothy e o Mágico do Sertão” do Sesi Escola</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5787/orquestra-sesi-e-cia-sesi-de-danca-celebraram-a-cultura-nordestina-em-cuiaba-com-o-sertao-dentro-de-nos" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-10-27">27 out 2025</time></span><span class="titulo">Orquestra Sesi e Cia. Sesi de Dança celebraram a cultura nordestina em Cuiabá com ‘O Sertão Dentro de Nós’</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5734/musicas-e-personagens-infantis-transportam-criancada-para-magia-do-cinema-no-sesi-no-parque" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-10-13">13 out 2025</time></span><span class="titulo">Músicas e personagens infantis transportam criançada para magia do cinema no Sesi no Parque</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5547/com-arranjos-modernos-e-energia-contagiante-concerto-no-parque-das-aguas-emociona-publico" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-08-11">11 ago 2025</time></span><span class="titulo">Com arranjos modernos e energia contagiante, concerto no Parque das Águas emociona público</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5435/espetaculo-de-ballet-dom-quixote-emociona-plateia-em-apresentacao-historica-no-teatro-da-ufmt" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-07-07">7 jul 2025</time></span><span class="titulo">Espetáculo de ballet “Dom Quixote” emociona plateia em apresentação histórica no teatro da UFMT</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5368/uma-honra-michel-telo-celebra-musicos-mato-grossenses-em-concerto-com-orquestra-sesi-mt" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-06-16">16 jun 2025</time></span><span class="titulo">“Uma honra”: Michel Teló celebra músicos mato-grossenses em concerto com Orquestra Sesi MT</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5223/renato-teixeira-e-orquestra-sesi-mt-emocionam-publico-de-campo-verde-em-noite-de-homenagem-ao-trabalhador" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-05-02">2 mai 2025</time></span><span class="titulo">Renato Teixeira e Orquestra Sesi MT emocionam público de Campo Verde em noite de homenagem ao trabalhador</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5219/sstrends-bruna-isume-reforca-importancia-da-saude-mental-na-lideranca-corporativa" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-04-30">30 abr 2025</time></span><span class="titulo">SSTrends: Bruna Isume reforça importância da saúde mental na liderança corporativa</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5217/inovacao-que-cuida-inteligencia-artificial-avanca-na-saude-e-seguranca-do-trabalho" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-04-30">30 abr 2025</time></span><span class="titulo">Inovação que cuida: Inteligência Artificial avança na saúde e segurança do trabalho</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5047/vanessa-da-mata-enaltece-a-importancia-da-orquestra-sesi-mato-grosso" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-03-11">11 mar 2025</time></span><span class="titulo">Vanessa da Mata enaltece a importância da Orquestra Sesi Mato Grosso</span><span class="seta" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://sesimt.ind.br/noticias/5041/musica-que-encanta-chuva-nao-espanta-vanessa-da-mata-e-orquestra-sesi-mt-emocionam-o-publico" target="_blank" rel="noopener"><span class="onde"><b>SESI MT</b><time datetime="2025-03-10">10 mar 2025</time></span><span class="titulo">Música que encanta, chuva não espanta: Vanessa da Mata e Orquestra Sesi MT emocionam o público</span><span class="seta" aria-hidden="true">↗</span></a></li>
+    </ol>
+    <div class="mais"><button class="botao contorno" type="button" aria-expanded="false" data-mais-materias>Ver mais matérias</button></div>
+  </div>
+</section>
+
 <section class="clientes" id="clientes">
   <div class="largura">
     <span class="rotulo">Quem já confiou na gente</span>
@@ -475,6 +560,23 @@
       b.setAttribute('aria-expanded', abrir);
       b.textContent = abrir ? 'Ver menos' : 'Ver mais trabalhos (' + extras + ')';
       if (!abrir) document.getElementById('trabalhos').scrollIntoView();
+    });
+  })();
+</script>
+<script>
+  // Na imprensa: mostra as 6 matérias mais novas; "Ver mais" abre o resto
+  (function () {
+    var b = document.querySelector('[data-mais-materias]'), l = document.querySelector('.materias');
+    if (!b || !l) return;
+    var extras = l.querySelectorAll('li').length - 6;
+    if (extras <= 0) { b.parentNode.remove(); return; }
+    b.textContent = 'Ver mais matérias (' + extras + ')';
+    b.addEventListener('click', function () {
+      var abrir = !l.classList.contains('aberta');
+      l.classList.toggle('aberta', abrir);
+      b.setAttribute('aria-expanded', abrir);
+      b.textContent = abrir ? 'Ver menos' : 'Ver mais matérias (' + extras + ')';
+      if (!abrir) document.getElementById('imprensa').scrollIntoView();
     });
   })();
 </script>
