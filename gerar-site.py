@@ -99,6 +99,9 @@ def main():
     shutil.copytree(PASTA / "assets", saida / "assets",
                     ignore=shutil.ignore_patterns("marca-alternativa-cor-azul.svg", ".DS_Store"))
     (saida / "index.html").write_text(pagina, encoding="utf-8")
+    # Endereço curto e com prévia bonita no WhatsApp para o formulário de orçamento (Apps Script)
+    (saida / "orcamento").mkdir()
+    shutil.copy(PASTA / "orcamento.html", saida / "orcamento" / "index.html")
     if not rascunho:
         (saida / "CNAME").write_text(DOMINIO + "\n")
     tamanho_total = sum(f.stat().st_size for f in saida.rglob("*") if f.is_file())
