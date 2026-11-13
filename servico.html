@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Modelo das páginas de serviço. O texto de cada uma fica em servicos.json; o gerar-site.py
+     junta este modelo com o estilo, o topo e o rodapé da pagina.html e grava docs/<slug>/index.html. -->
+<title><!--TITULO--></title>
+<meta name="description" content="<!--DESCRICAO-->">
+<link rel="canonical" href="<!--URL-->">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icone/icone-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icone/apple-touch-icon.png">
+<meta name="theme-color" content="#22304B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="George Dias Audiovisual">
+<meta property="og:title" content="<!--TITULO-->">
+<meta property="og:description" content="<!--DESCRICAO-->">
+<meta property="og:url" content="<!--URL-->">
+<meta property="og:image" content="https://www.georgedias.com.br/assets/og/site.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<!--JSONLD-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&family=Alegreya+SC:wght@400;500&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<!--ESTILO-->
+<style>
+  /* Só das páginas de serviço */
+  .servico-topo { padding: 40px 0 104px; }
+  .servico-topo .largura { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; }
+  .servico-topo h1 { font-size: clamp(40px, 5.2vw, 76px); margin: 18px 0 28px; }
+  .servico-topo .intro p { max-width: 560px; }
+  .servico-topo .acoes { margin-top: 32px; }
+  .servico-topo .capa { aspect-ratio: 4 / 5; box-shadow: 24px 24px 0 var(--painel); }
+  /* Com vídeo no topo: o vídeo de destaque ocupa a coluna maior e toca ali mesmo */
+  .servico-topo.com-video .largura { grid-template-columns: 5fr 7fr; gap: 56px; }
+  .servico-topo.com-video h1 { font-size: clamp(38px, 4.4vw, 64px); }
+  .servico-topo .grade { margin-top: 0; grid-template-columns: 1fr; }
+  .servico-topo .grade .video { box-shadow: 24px 24px 0 var(--painel); }
+  .servico .trabalhos { padding-top: 88px; }
+  .fazemos { padding: 104px 0; }
+  .lista h3 a { text-decoration: none; box-shadow: inset 0 -1.5px 0 var(--caramelo); }
+  .servico .grade article:nth-child(n+4) { display: block; }
+  .servico .trabalhos h2, .outros h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 14px; }
+  .galeria-fotos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 36px; }
+  .galeria-fotos .foto { aspect-ratio: 4 / 5; }
+  .link-extra { margin-top: 40px; }
+  .fotos-evento { padding: 104px 0 0; }
+  /* Reels no topo (produção de conteúdo): dois Reels lado a lado */
+  .servico-topo .grade-reels { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .servico .trabalhos .grade-reels { margin-top: 36px; }
+  .fotos-evento h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 14px; }
+  .outros { padding: 104px 0 0; }
+  .outros ul { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; }
+  .outros li { border-top: 1px solid var(--marinho); }
+  .outros a { display: block; padding: 14px 0 6px; font-family: "Alegreya SC", serif; font-size: 22px; line-height: 1.15; text-decoration: none; }
+  .outros a:hover { color: var(--caramelo); }
+  .servico .fechamento { padding-top: 104px; }
+  @media (max-width: 860px) {
+    .servico-topo .largura, .servico-topo.com-video .largura { grid-template-columns: 1fr; gap: 48px; }
+    .servico-topo .grade .video { box-shadow: 14px 14px 0 var(--painel); }
+    .servico-topo .capa { max-width: 420px; }
+    .servico-topo { padding-bottom: 64px; }
+    .servico .trabalhos { padding-top: 64px; }
+    .galeria-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .outros ul { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="servico">
+
+<!--TOPO-->
+
+<main>
+
+<section class="servico-topo<!--CLASSE-TOPO-->">
+  <div class="largura">
+    <div class="texto">
+      <span class="rotulo"><!--ROTULO--></span>
+      <h1><!--H1--></h1>
+      <div class="intro">
+<!--INTRO-->
+      </div>
+      <div class="acoes">
+        <a class="botao" href="/orcamento/">Pedir orçamento</a>
+        <a class="botao contorno" href="https://wa.me/5565992266942">WhatsApp</a>
+      </div>
+    </div>
+<!--CAPA-->
+  </div>
+</section>
+
+<!--TRABALHOS-->
+<!--FOTOS-->
+
+<section class="fazemos">
+  <div class="largura">
+    <span class="rotulo">Como a gente trabalha</span>
+    <img class="ornamento" src="/assets/ornamento-cor-azul.png" alt="">
+    <div class="lista">
+<!--ITENS-->
+    </div>
+  </div>
+</section>
+
+<section class="outros">
+  <div class="largura">
+    <span class="rotulo">Outros serviços</span>
+    <ul>
+<!--OUTROS-->
+    </ul>
+  </div>
+</section>
+
+<section class="fechamento" id="orcamento">
+  <div class="largura">
+    <h2>Vamos contar a sua história?</h2>
+    <div>
+      <p>Conte o que você precisa em 2 minutos: o tipo de trabalho, a data e a cidade. A proposta chega bem mais rápido, com a atenção que o seu projeto merece.</p>
+      <a class="mao" href="https://wa.me/5565992266942">vamos conversar →</a>
+      <div class="acoes">
+        <a class="botao" href="/orcamento/">Pedir orçamento</a>
+        <a class="botao contorno" href="https://wa.me/5565992266942">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!--RODAPE-->
+
+<script>
+  // Vídeos: troca a miniatura pelo player do YouTube só quando a pessoa toca (a página fica leve)
+  document.querySelectorAll('.grade .video').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.video + '?autoplay=1&rel=0&playsinline=1';
+      f.title = b.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      var caixa = document.createElement('div');
+      caixa.className = 'foto video';
+      caixa.appendChild(f);
+      b.replaceWith(caixa);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+[
+  {
+    "slug": "cobertura-de-eventos",
+    "nome": "Cobertura de eventos",
+    "titulo": "Cobertura de eventos · Cuiabá-MT e todo o Brasil · George Dias Audiovisual",
+    "descricao": "Cobertura de eventos de Cuiabá-MT para todo o Brasil: Stories em tempo real, fotografia, filmagem e aftermovie com qualidade de cinema. Peça seu orçamento.",
+    "rotulo": "Cobertura de eventos · Foto e vídeo",
+    "h1": "Cobertura de eventos onde você estiver",
+    "intro": [
+      "Um evento acontece uma vez só. A gente chega antes, acompanha cada momento até o fim e transforma tudo em fotos e vídeos que fazem quem estava lá querer reviver, e quem não foi querer estar na próxima.",
+      "Cuidamos de tudo o que o seu evento precisa: Stories em tempo real, fotografia, filmagem e o aftermovie."
+    ],
+    "destaque": "jMU7pnt9D2k",
+    "itens": [
+      {
+        "titulo": "Stories em tempo real",
+        "texto": "Stories feitos durante o evento, para a sua marca aparecer nas redes enquanto tudo acontece."
+      },
+      {
+        "titulo": "Cobertura fotográfica",
+        "texto": "Do palco ao bastidor, as fotos que contam o evento, com olhar de fotógrafo."
+      },
+      {
+        "titulo": "Aftermovie com qualidade de cinema",
+        "texto": "O resumo do evento em poucos minutos, com trilha, ritmo e imagem de cinema."
+      },
+      {
+        "titulo": "Do roteiro à entrega",
+        "texto": "Antes de ligar a câmera, a gente entende o que o seu evento precisa contar."
+      }
+    ],
+    "titulo_trabalhos": "Mais eventos que a gente contou",
+    "videos": [
+      "Ye5VhVwp15E",
+      "jMU7pnt9D2k",
+      "CkaovVzLdFE",
+      "ry1KQz65dsM",
+      "7HYCvC5YH5Q",
+      "Wt6CDJmb82Q",
+      "OEAIA8BB9UQ",
+      "puzWZGMiv9U",
+      "r85-XNSJ3AE",
+      "Ol9L-2wWPqM"
+    ],
+    "titulo_fotos": "Do palco ao bastidor",
+    "fotos": [
+      {
+        "src": "assets/fotos/sesi50-maestro-joao.jpg",
+        "alt": "Maestro João Carlos Martins regendo a Orquestra SESI no concerto dos 50 anos do SESI Mato Grosso",
+        "posicao": "88% 50%"
+      },
+      {
+        "src": "assets/fotos/corrida-de-reis-chegada.jpg",
+        "alt": "Corredor de braços erguidos na chegada da Corrida de Reis",
+        "posicao": "50% 30%"
+      },
+      {
+        "src": "assets/fotos/sesi-teatro-por-elas.jpg",
+        "alt": "Cantora de braços abertos com a Orquestra SESI, no palco cheio de flores",
+        "posicao": "30% 50%"
+      },
+      {
+        "src": "assets/fotos/sicredi-festival-show.jpg",
+        "alt": "Cantor no palco do Festival de Inverno Sicredi, contra a luz",
+        "posicao": "50% 30%"
+      },
+      {
+        "src": "assets/fotos/fiemt-expoind-danca.jpg",
+        "alt": "Grupo de dança regional se apresentando no palco da Expoind, feira da indústria da FIEMT",
+        "posicao": "50% 0%"
+      },
+      {
+        "src": "assets/fotos/george-dias-trabalhando.jpg",
+        "alt": "George Dias e a esposa na Corrida de Reis, ele trabalhando com a câmera e o ponto no ouvido",
+        "posicao": "50% 50%"
+      }
+    ],
+    "link_extra": {
+      "texto": "Ver as nossas fotos nas notícias",
+      "href": "/#imprensa"
+    },
+    "link_trabalhos": {
+      "texto": "Ver as feiras e eventos do agro",
+      "href": "/cobertura-de-feiras-do-agro/"
+    }
+  },
+  {
+    "slug": "producao-de-conteudo",
+    "nome": "Produção de conteúdo",
+    "titulo": "Produção de conteúdo para redes sociais · George Dias Audiovisual",
+    "descricao": "Reels, fotos e vídeos para as redes sociais da sua marca, pontual ou todo mês, com roteiro, gravação e edição. Peça seu orçamento.",
+    "rotulo": "Produção de conteúdo · Reels e redes sociais",
+    "h1": "Produção de conteúdo para as redes",
+    "intro": [
+      "A sua marca precisa aparecer com frequência, e com qualidade. A gente cuida da ideia, da gravação e da edição de Reels, fotos e vídeos que conversam com quem acompanha você.",
+      "Pode ser pontual, numa campanha ou num lançamento, ou todo mês, num pacote que acompanha o ritmo da sua marca."
+    ],
+    "reels": true,
+    "itens": [
+      {
+        "titulo": "Ideia e roteiro",
+        "texto": "Pautas pensadas para a sua marca e para o que está em alta, sem perder a sua cara."
+      },
+      {
+        "titulo": "Gravação e edição",
+        "texto": "Imagem bonita, ritmo de rede e legenda que prende desde o primeiro segundo."
+      },
+      {
+        "titulo": "Todo mês ou pontual",
+        "texto": "Um pacote mensal com pautas, gravações e edições, ou um projeto só, quando você precisar."
+      }
+    ],
+    "titulo_trabalhos": "Mais Reels que a gente fez",
+    "link_trabalhos": {
+      "texto": "Ver todos os Reels",
+      "href": "/#reels"
+    }
+  },
+  {
+    "slug": "filme-institucional",
+    "nome": "Filme institucional",
+    "titulo": "Filme institucional · Cuiabá-MT e todo o Brasil · George Dias Audiovisual",
+    "descricao": "Filme institucional para empresas de Mato Grosso e de todo o Brasil: a história da sua marca contada a partir de um bom roteiro, com depoimentos e cenas reais.",
+    "rotulo": "Filme institucional · Empresas e marcas",
+    "h1": "Filme institucional: a história da sua empresa",
+    "intro": [
+      "Toda empresa tem uma história que merece ser bem contada. No filme institucional, a gente parte de um bom roteiro para mostrar quem vocês são, o que fazem e por que isso importa para quem assiste.",
+      "Serve para apresentar a empresa a clientes e parceiros, celebrar uma data especial, lançar um projeto ou receber quem chega à equipe."
+    ],
+    "destaque": "D2AvunSmVrQ",
+    "itens": [
+      {
+        "titulo": "Começa pelo roteiro",
+        "texto": "A gente escuta, entende o que precisa ser dito e escreve com você antes de gravar."
+      },
+      {
+        "titulo": "Gente de verdade",
+        "texto": "Depoimentos e cenas do dia a dia, com luz e enquadramento cuidados."
+      },
+      {
+        "titulo": "Pronto quando você precisa",
+        "texto": "O que importa é a data em que o filme precisa estar no ar, e a gente planeja a partir dela."
+      }
+    ],
+    "titulo_trabalhos": "Mais histórias de empresas e projetos",
+    "videos": [
+      "D2AvunSmVrQ",
+      "eE06JS6yYmo",
+      "Uj1PHihPVuI",
+      "Hbdfn7_N4cI"
+    ]
+  },
+  {
+    "slug": "retratos-corporativos",
+    "nome": "Retratos corporativos",
+    "titulo": "Retratos corporativos · George Dias Audiovisual",
+    "descricao": "Retratos corporativos da equipe e da diretoria no lugar onde o trabalho acontece, longe do fundo branco. Para o site, a imprensa e as redes da sua empresa.",
+    "rotulo": "Retratos corporativos · Equipe e diretoria",
+    "h1": "Retratos onde o trabalho acontece",
+    "intro": [
+      "Um bom retrato mostra quem a pessoa é e o que ela faz. Por isso, a gente fotografa a equipe e a diretoria no escritório, na obra, no campo ou no hotel, com luz e enquadramento cuidados.",
+      "São imagens para o site, a imprensa, as redes e os materiais da sua empresa, com a cara que a marca merece."
+    ],
+    "capa": {
+      "src": "assets/retratos/serafim.jpg",
+      "alt": "Retrato do superintendente do SESI Mato Grosso à mesa do escritório",
+      "posicao": "50% 50%"
+    },
+    "itens": [
+      {
+        "titulo": "No lugar certo",
+        "texto": "Escritório, obra, campo ou hotel: o cenário conta a história junto com a pessoa."
+      },
+      {
+        "titulo": "Sem pose dura",
+        "texto": "A gente conversa, deixa a pessoa à vontade e espera o momento em que ela é ela mesma."
+      },
+      {
+        "titulo": "Pronto para usar",
+        "texto": "Imagens para o site, a imprensa e as redes da sua empresa."
+      }
+    ],
+    "rotulo_fotos": "Retratos",
+    "titulo_fotos": "Alguns retratos",
+    "fotos": [
+      {
+        "src": "assets/retratos/luzimar.jpg",
+        "alt": "Retrato de executiva da Abitte, de capacete e braços cruzados, no canteiro de obras",
+        "posicao": "50% 50%"
+      },
+      {
+        "src": "assets/retratos/eduardo.jpg",
+        "alt": "Retrato de executivo da Slaviero apoiado numa mesa de madeira, com a janela ao fundo",
+        "posicao": "50% 50%"
+      },
+      {
+        "src": "assets/retratos/roberto.jpg",
+        "alt": "Retrato de executivo da Agro Amazônia sorrindo à mesa do escritório",
+        "posicao": "50% 50%"
+      }
+    ]
+  },
+  {
+    "slug": "cobertura-de-feiras-do-agro",
+    "nome": "Feiras do agro",
+    "titulo": "Cobertura de feiras e eventos do agro · George Dias Audiovisual",
+    "descricao": "Foto e vídeo para feiras e eventos do agro: Show Safra, Norte Show, Farm Show, Rondônia Rural Show, dias de campo e lançamentos em Mato Grosso e além.",
+    "rotulo": "Agro · Feiras, dias de campo e lançamentos",
+    "h1": "Cobertura de feiras e eventos do agro",
+    "intro": [
+      "O agro tem pressa, e a gente também. Em feiras como Show Safra, Norte Show, Farm Show e Rondônia Rural Show, acompanhamos o estande do começo ao fim e entregamos fotos e vídeos que mostram o movimento, os negócios e as pessoas.",
+      "Também cobrimos dias de campo, treinamentos, jantares com produtores e inaugurações de filiais, onde você estiver."
+    ],
+    "destaque": "gf7jJ927dRA",
+    "itens": [
+      {
+        "titulo": "Quem conhece o campo",
+        "texto": "Uma equipe que conhece o agro de perto e sabe o que importa para o produtor e para a marca."
+      },
+      {
+        "titulo": "Durante a feira",
+        "texto": "Stories e Reels enquanto a feira acontece, para a marca aparecer na hora certa."
+      },
+      {
+        "titulo": "O circuito inteiro",
+        "texto": "A mesma linguagem em todas as feiras do ano, da primeira à última."
+      }
+    ],
+    "titulo_trabalhos": "Mais feiras e eventos do agro",
+    "videos": [
+      "0sA8qYMe2hY",
+      "90gnbYWdZNU",
+      "rU-h3gLiROM",
+      "B-gQpfdiVqw",
+      "hAULovqxHoE",
+      "gf7jJ927dRA",
+      "u3lXoXoTT7Y",
+      "mEDg9ZNwgqU",
+      "CiL-ZZ5TF6I",
+      "Hbdfn7_N4cI",
+      "i1B8FBs-yJ8",
+      "wOFB2QTgdt4",
+      "EmaKDRZ2WRQ"
+    ]
+  }
+]

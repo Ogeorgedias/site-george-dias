@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foto e vídeo de eventos em Cuiabá-MT · George Dias Audiovisual</title>
+<title>Foto e vídeo de eventos · Cuiabá-MT e todo o Brasil · George Dias Audiovisual</title>
 <meta name="description" content="Filmagem e fotografia de eventos, aftermovie, vídeo institucional, feiras do agro e conteúdo para redes sociais. De Cuiabá-MT para todo o Brasil.">
 <link rel="canonical" href="https://www.georgedias.com.br/">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -94,7 +94,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "Cobertura de eventos",
-       "description": "Fotos, aftermovie, Stories e Reels enquanto o evento acontece."
+       "description": "Filmagem e fotografia, aftermovie, Stories e Reels enquanto o evento acontece."
       }
      },
      {
@@ -244,6 +244,12 @@
   .lista h3 { font-size: 24px; }
   .lista p { margin: 0; font-size: 16px; }
   @media (max-width: 860px) { .lista { grid-template-columns: 1fr; } }
+  /* Cada serviço abre a página dele (13/11/2026) */
+  .lista a { display: grid; grid-template-columns: 56px 1fr; gap: 4px 0; padding: 24px 0; border-top: 1px solid var(--linha); text-decoration: none; }
+  .lista a .num { grid-row: span 3; }
+  .lista .saiba { grid-column: 2; margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--caramelo); }
+  .lista a:hover h3, .lista a:focus-visible h3 { color: var(--caramelo); }
+  .lista a:hover .saiba { text-decoration: underline; text-underline-offset: 4px; }
 
   /* Trabalhos recentes */
   .trabalhos { background: var(--painel); padding: 96px 0 104px; }
@@ -360,7 +366,7 @@
 
   /* Rodapé */
   .rodape { background: var(--marinho); color: var(--papel); padding: 72px 0 32px; font-size: 15px; }
-  .rodape .colunas { display: grid; grid-template-columns: 4fr 3fr 3fr; gap: 40px; }
+  .rodape .colunas { display: grid; grid-template-columns: 4fr 3fr 3fr 3fr; gap: 40px; }
   .rodape .marca svg { width: 170px; height: auto; display: block; margin-bottom: 16px; }
   .rodape .rotulo { display: block; color: var(--areia); margin-bottom: 14px; font-size: 11px; }
   .rodape a { text-decoration: none; display: block; margin-bottom: 6px; }
@@ -433,7 +439,7 @@
       </div>
     </div>
     <div class="texto">
-      <span class="rotulo">Cuiabá-MT · onde a sua história estiver</span>
+      <span class="rotulo">Foto e vídeo de eventos · Onde você estiver</span>
       <h1>Nenhuma história é igual.</h1>
       <p>Por isso, nenhum cliente é mais um. A gente escuta o que você precisa, acompanha cada momento até o fim e entrega imagens feitas com o cuidado de quem assina cada uma delas.</p>
       <div class="acoes">
@@ -474,7 +480,7 @@
         </div>
         <div>
           <span class="rotulo">O cuidado</span>
-          <p>Vamos aonde a história estiver, na feira do interior ou na convenção da capital, e ficamos até o último momento.</p>
+          <p>Vamos aonde a história estiver, na feira do agro no interior ou na convenção em Cuiabá, e ficamos até o último momento.</p>
         </div>
       </div>
     </div>
@@ -496,10 +502,10 @@
     <span class="rotulo">O que fazemos</span>
     <img class="ornamento" src="assets/ornamento-cor-azul.png" alt="">
     <div class="lista">
-      <article><span class="num">01</span><h3>Cobertura de eventos</h3><p>Fotos, aftermovie, Stories e Reels enquanto o evento acontece.</p></article>
-      <article><span class="num">02</span><h3>Produção de conteúdo</h3><p>Reels, fotos e vídeos para as redes, pontual ou todo mês.</p></article>
-      <article><span class="num">03</span><h3>Filmes institucionais</h3><p>A história da sua empresa contada a partir de um bom roteiro.</p></article>
-      <article><span class="num">04</span><h3>Retratos corporativos</h3><p>A equipe e a diretoria com a imagem que a marca merece.</p></article>
+      <a href="/cobertura-de-eventos/"><span class="num">01</span><h3>Cobertura de eventos</h3><p>Filmagem e fotografia, aftermovie, Stories e Reels enquanto o evento acontece.</p><span class="saiba">Saiba mais →</span></a>
+      <a href="/producao-de-conteudo/"><span class="num">02</span><h3>Produção de conteúdo</h3><p>Reels, fotos e vídeos para as redes, pontual ou todo mês.</p><span class="saiba">Saiba mais →</span></a>
+      <a href="/filme-institucional/"><span class="num">03</span><h3>Filmes institucionais</h3><p>A história da sua empresa contada a partir de um bom roteiro.</p><span class="saiba">Saiba mais →</span></a>
+      <a href="/retratos-corporativos/"><span class="num">04</span><h3>Retratos corporativos</h3><p>A equipe e a diretoria com a imagem que a marca merece.</p><span class="saiba">Saiba mais →</span></a>
     </div>
   </div>
 </section>
@@ -901,6 +907,14 @@
 <path fill="#FFFFFF" fill-rule="evenodd" d="M387.61 317.38Q388.06 318.14 388.94 318.20Q389.67 318.25 390.58 317.67Q391.13 317.33 392.12 317.28Q393.20 317.24 393.61 317.17Q394.06 317.11 395.19 316.86Q396.63 316.54 397.19 316.28Q398.35 315.73 398.81 314.98Q399.26 314.26 398.91 313.50Q398.55 312.73 397.71 312.61Q397.31 312.55 396.94 312.70Q396.24 312.98 395.73 313.96Q395.60 314.21 395.27 314.36Q394.74 314.61 393.41 314.69Q392.90 314.73 392.35 314.82Q390.78 315.07 390.37 314.99L390.29 314.97L390.24 314.82Q390.17 314.63 390.02 314.10L389.88 313.62L389.72 313.09Q389.14 311.19 388.93 308.10Q388.80 306.22 388.78 304.47Q388.77 302.55 388.65 301.52Q388.58 300.92 388.52 300.74Q388.32 300.14 387.77 299.90Q387.22 299.66 386.66 299.93Q386.40 300.05 385.88 300.57L385.81 300.65L385.45 301.01Q384.37 302.06 385.34 303.19Q385.70 303.60 386.22 303.70L386.24 303.71L386.35 304.72Q386.50 306.19 386.47 307.70Q386.43 309.72 386.99 312.06Q387.37 313.66 387.52 314.75Q387.63 315.55 387.51 315.82Q387.16 316.63 387.61 317.38Z"/>
 </svg></span>
         <p>Cuiabá - MT<br>Onde a sua história estiver.</p>
+      </div>
+      <div>
+        <span class="rotulo">Serviços</span>
+        <a href="/cobertura-de-eventos/">Cobertura de eventos</a>
+        <a href="/producao-de-conteudo/">Produção de conteúdo</a>
+        <a href="/filme-institucional/">Filme institucional</a>
+        <a href="/retratos-corporativos/">Retratos corporativos</a>
+        <a href="/cobertura-de-feiras-do-agro/">Feiras do agro</a>
       </div>
       <div>
         <span class="rotulo">Contato</span>
