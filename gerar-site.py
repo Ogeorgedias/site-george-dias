@@ -13,6 +13,7 @@ import re
 import shutil
 import sys
 import unicodedata
+from datetime import date
 from pathlib import Path
 
 from PIL import Image
@@ -102,6 +103,15 @@ def main():
     # Endereço curto e com prévia bonita no WhatsApp para o formulário de orçamento (Apps Script)
     (saida / "orcamento").mkdir()
     shutil.copy(PASTA / "orcamento.html", saida / "orcamento" / "index.html")
+    # Para o Google: ícone na raiz (é onde ele procura primeiro), robots.txt e sitemap (13/11/2026)
+    shutil.copy(PASTA / "assets" / "icone" / "favicon.ico", saida / "favicon.ico")
+    (saida / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: https://{DOMINIO}/sitemap.xml\n", encoding="utf-8")
+    (saida / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'  <url><loc>https://{DOMINIO}/</loc><lastmod>{date.today().isoformat()}</lastmod></url>\n'
+        '</urlset>\n', encoding="utf-8")
     if not rascunho:
         (saida / "CNAME").write_text(DOMINIO + "\n")
     tamanho_total = sum(f.stat().st_size for f in saida.rglob("*") if f.is_file())
