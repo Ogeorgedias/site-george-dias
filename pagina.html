@@ -373,13 +373,14 @@
   .fechamento { padding: 40px 0 120px; }
   .fechamento .largura { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: end; border-top: 1px solid var(--linha); padding-top: 72px; }
   .fechamento h2 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.08; }
+  .fechamento .corujas { width: clamp(150px, 15vw, 220px); height: auto; margin: 0 0 28px; }
   .fechamento .mao { display: inline-block; margin: 8px 0 22px; text-decoration: none; box-shadow: inset 0 -8px 0 rgba(160, 126, 90, .18); }
   @media (max-width: 860px) { .fechamento .largura { grid-template-columns: 1fr; gap: 28px; } }
 
   /* Rodapé */
   .rodape { background: var(--marinho); color: var(--papel); padding: 72px 0 32px; font-size: 15px; }
   .rodape .colunas { display: grid; grid-template-columns: 4fr 3fr 3fr 3fr; gap: 40px; }
-  .rodape .marca svg { width: 170px; height: auto; display: block; margin-bottom: 16px; }
+  .rodape .marca img { width: 190px; height: auto; display: block; margin-bottom: 20px; }
   .rodape .rotulo { display: block; color: var(--areia); margin-bottom: 14px; font-size: 11px; }
   .rodape a { text-decoration: none; display: block; margin-bottom: 6px; }
   .rodape a:hover { text-decoration: underline; }
@@ -840,7 +841,11 @@
 
 <section class="fechamento" id="orcamento">
   <div class="largura">
-    <h2>Obrigado por chegar até aqui. Vamos contar a sua história?</h2>
+    <div>
+      <!-- Corujas da marca (kit LOGO OGD): a gente voa até onde você estiver -->
+      <img class="corujas" src="assets/corujas-cor-azul.png" alt="" width="657" height="477" loading="lazy">
+      <h2>Obrigado por chegar até aqui. Vamos contar a sua história?</h2>
+    </div>
     <div>
       <p>Conte o que você precisa em 2 minutos: o tipo de trabalho, a data e a cidade. A proposta chega bem mais rápido, com a atenção que o seu projeto merece.</p>
       <a class="mao" href="https://wa.me/5565992266942">vamos conversar →</a>
@@ -858,7 +863,8 @@
   <div class="largura">
     <div class="colunas">
       <div>
-        <span class="marca"><!--MARCA-ALTERNATIVA-BRANCO--></span>
+        <!-- Marca completa, com a casinha (kit LOGO OGD), como assinatura no rodapé (13/11/2026) -->
+        <a class="marca" href="/" aria-label="George Dias Audiovisual, início"><img src="assets/marca-casa-branco.png" alt="George Dias Audiovisual" width="723" height="684" loading="lazy"></a>
         <p>Cuiabá - MT<br>Onde a sua história estiver.</p>
       </div>
       <div>

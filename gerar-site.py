@@ -246,7 +246,6 @@ def main():
     if rascunho:
         pagina = pagina.replace("<body>", '<body class="rascunho">', 1)
     trocas = {
-        "<!--MARCA-ALTERNATIVA-BRANCO-->": svg("marca-alternativa-branco.svg"),
         "<!--MARCA-ALTERNATIVA-AZUL-->": svg("marca-alternativa-cor-azul.svg"),
         "<!--CLIENTES-->": grade_clientes(),
         "<!--SERVICOS-RODAPE-->": links_servicos(servicos, " " * 8),
@@ -274,6 +273,19 @@ def main():
         (saida / sv["slug"] / "index.html").write_text(
             pagina_servico(sv, servicos, modelo, pagina_bruta, pagina,
                            svg("marca-alternativa-cor-azul.svg"), svg("marca-alternativa-branco.svg")), encoding="utf-8")
+    # Página de endereço que não existe, com as corujas da marca (13/11/2026)
+    t404 = (PASTA / "nao-encontrada.html").read_text(encoding="utf-8")
+    for marcador, conteudo in {
+        "<!--ESTILO-->": para_subpagina(trecho(pagina_bruta, "<style>", "</style>")),
+        "<!--TOPO-->": para_subpagina(trecho(pagina_bruta, '<header class="topo">', "</header>")).replace(
+            "<!--MARCA-ALTERNATIVA-AZUL-->", svg("marca-alternativa-cor-azul.svg")),
+        "<!--RODAPE-->": para_subpagina(trecho(pagina_bruta, '<footer class="rodape">', "</footer>")).replace(
+            "<!--MARCA-ALTERNATIVA-BRANCO-->", svg("marca-alternativa-branco.svg")).replace(
+            "<!--SERVICOS-RODAPE-->", links_servicos(servicos, " " * 8)),
+    }.items():
+        assert marcador in t404, marcador
+        t404 = t404.replace(marcador, conteudo)
+    (saida / "404.html").write_text(t404, encoding="utf-8")
     hoje = date.today().isoformat()
     enderecos = [f"https://{DOMINIO}/"] + [f"https://{DOMINIO}/{sv['slug']}/" for sv in servicos]
     (saida / "sitemap.xml").write_text(
