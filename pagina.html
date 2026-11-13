@@ -120,6 +120,14 @@
        "name": "Retratos corporativos",
        "description": "A equipe e a diretoria com a imagem que a marca merece."
       }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Feiras do agro",
+       "description": "Fotos, vídeos e Stories do estande, do primeiro ao último dia."
+      }
      }
     ]
    },
@@ -250,6 +258,8 @@
   .lista .saiba { grid-column: 2; margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--caramelo); }
   .lista a:hover h3, .lista a:focus-visible h3 { color: var(--caramelo); }
   .lista a:hover .saiba { text-decoration: underline; text-underline-offset: 4px; }
+  .cabeca a.saiba { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--caramelo); text-decoration: none; }
+  .cabeca a.saiba:hover { text-decoration: underline; text-underline-offset: 4px; }
 
   /* Trabalhos recentes */
   .trabalhos { background: var(--painel); padding: 96px 0 104px; }
@@ -279,7 +289,8 @@
   .reels { padding: 104px 0 0; }
   .reels .cabeca { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: end; }
   .reels h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 14px; }
-  .reels .cabeca p { margin: 0; max-width: 420px; justify-self: end; }
+  .reels .cabeca p { margin: 0; }
+  .reels .cabeca > div + div { max-width: 420px; justify-self: end; }
   .grade-reels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; margin-top: 40px; }
   .grade-reels article.escondido { display: none; }
   .grade-reels article.surge { animation: surge .5s ease both; }
@@ -297,7 +308,7 @@
   .modal-reel .fechar { position: absolute; top: 12px; right: 16px; width: 44px; height: 44px; border: 0; background: none; color: var(--papel); font-size: 34px; line-height: 1; cursor: pointer; }
   @media (max-width: 860px) {
     .reels .cabeca { grid-template-columns: 1fr; gap: 16px; }
-    .reels .cabeca p { justify-self: start; }
+    .reels .cabeca > div + div { justify-self: start; }
     .grade-reels { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
     .grade-reels .ficha { flex-direction: column; gap: 0; font-size: 10px; }
     .grade-reels h3 { font-size: 10px; }
@@ -307,7 +318,8 @@
   .retratos { padding: 104px 0 0; }
   .retratos .cabeca { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: end; }
   .retratos h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 14px; }
-  .retratos .cabeca p { margin: 0; max-width: 420px; justify-self: end; }
+  .retratos .cabeca p { margin: 0; }
+  .retratos .cabeca > div + div { max-width: 420px; justify-self: end; }
   .galeria-retratos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
   .galeria-retratos figure { margin: 0; }
   .galeria-retratos .foto { aspect-ratio: 4 / 5; }
@@ -316,7 +328,7 @@
   .galeria-retratos figcaption span { opacity: .65; }
   @media (max-width: 860px) {
     .retratos .cabeca { grid-template-columns: 1fr; gap: 16px; }
-    .retratos .cabeca p { justify-self: start; }
+    .retratos .cabeca > div + div { justify-self: start; }
     .galeria-retratos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
     .galeria-retratos figcaption { flex-direction: column; gap: 0; font-size: 10px; }
   }
@@ -483,6 +495,7 @@
       <a href="/producao-de-conteudo/"><span class="num">02</span><h3>Produção de conteúdo</h3><p>Reels, fotos e vídeos para as redes, pontual ou todo mês.</p><span class="saiba">Saiba mais →</span></a>
       <a href="/filme-institucional/"><span class="num">03</span><h3>Filmes institucionais</h3><p>A história da sua empresa contada a partir de um bom roteiro.</p><span class="saiba">Saiba mais →</span></a>
       <a href="/retratos-corporativos/"><span class="num">04</span><h3>Retratos corporativos</h3><p>A equipe e a diretoria com a imagem que a marca merece.</p><span class="saiba">Saiba mais →</span></a>
+      <a href="/cobertura-de-feiras-do-agro/"><span class="num">05</span><h3>Feiras do agro</h3><p>Fotos, vídeos e Stories do estande, do primeiro ao último dia.</p><span class="saiba">Saiba mais →</span></a>
     </div>
   </div>
 </section>
@@ -534,7 +547,10 @@
         <span class="rotulo">Produção de conteúdo</span>
         <h2>Feitos para as redes</h2>
       </div>
-      <p>Reels que produzimos e que os clientes publicaram nos perfis deles.</p>
+      <div>
+        <p>Reels que produzimos e que os clientes publicaram nos perfis deles.</p>
+        <a class="saiba" href="/producao-de-conteudo/">Saiba mais →</a>
+      </div>
     </div>
     <!-- REELS: gerados por atualizar-reels.py a partir de reels.json (aba Repostagens do @ogeorgedias). Não edite à mão entre as marcas. -->
     <div class="grade-reels">
@@ -721,7 +737,10 @@
         <span class="rotulo">Retratos corporativos</span>
         <h2>Retratos onde o trabalho acontece</h2>
       </div>
-      <p>Na obra, no escritório ou no hotel: fotografamos a equipe e a diretoria no dia a dia de cada um.</p>
+      <div>
+        <p>Na obra, no escritório ou no hotel: fotografamos a equipe e a diretoria no dia a dia de cada um.</p>
+        <a class="saiba" href="/retratos-corporativos/">Saiba mais →</a>
+      </div>
     </div>
     <!-- RETRATOS: escolhidos pelo George em 12/11/2026, todos fora do fundo branco, cada um de um cliente.
          Abitte (Luzimar, na obra), SESI MT (Alexandre Serafim), Slaviero (Eduardo, Convenção 2026), Agro Amazônia (Roberto). O nome das pessoas não aparece. -->
